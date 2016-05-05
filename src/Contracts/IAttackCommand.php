@@ -2,7 +2,7 @@
 
 namespace Space\Contracts;
 
-interface IAttackCommand
+interface IAttackCommand extends IBaseCommand
 {
     /**
      * Tells an OffensiveVessel to raise it's shields if passed this command.

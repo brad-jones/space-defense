@@ -68,6 +68,47 @@ class Fleet
     }
 
     /**
+     * @return BattleShipVessel The fleets one and only commanding ship.
+     */
+    public function getCommandShip()
+    {
+        return $this->commandShip;
+    }
+
+    /**
+     * @return IBaseVessel[] The entire fleet.
+     */
+    public function getAllVessels()
+    {
+        return array_merge
+        (
+            [$this->getCommandShip()],
+            $this->getFighters(),
+            $this->getSupports()
+        );
+    }
+
+    /**
+     * @return IOffensiveVessel[] The fleets fighter craft, including the $commandShip.
+     */
+    public function getFighters()
+    {
+        return array_merge
+        (
+            [$this->getCommandShip()],
+            $this->fighters
+        );
+    }
+
+    /**
+     * @return ISupportVessel[] The fleets support craft.
+     */
+    public function getSupports()
+    {
+        return $this->supports;
+    }
+
+    /**
      * Adds a new OffensiveVessel to the fleets fighter list.
      *
      * @param IOffensiveVessel $vessel
@@ -84,6 +125,6 @@ class Fleet
      */
     public function addSupport(ISupportVessel $vessel)
     {
-        $this->fighters[] = $this->ensureFleetSize($vessel);
+        $this->supports[] = $this->ensureFleetSize($vessel);
     }
 }

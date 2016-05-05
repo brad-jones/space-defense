@@ -2,6 +2,7 @@
 
 namespace Space\Vessels\Support;
 
+use Space\Vessels\BaseVessel;
 use Space\Contracts\ISupportVessel;
 use Space\Contracts\IMedicalUnit;
 use Space\Contracts\IOrder;
@@ -29,7 +30,7 @@ class SupportVessel extends BaseVessel implements ISupportVessel
      */
     public function __construct(IMedicalUnit $medicalUnit)
     {
-        $ths->setMedicalUnit($medicalUnit);
+        $this->setMedicalUnit($medicalUnit);
     }
 
     /**
@@ -37,7 +38,7 @@ class SupportVessel extends BaseVessel implements ISupportVessel
      */
     public function setMedicalUnit(IMedicalUnit $medicalUnit)
     {
-        $ths->medicalUnit = $medicalUnit;
+        $this->medicalUnit = $medicalUnit;
     }
 
     /**

@@ -2,7 +2,7 @@
 
 namespace Space\Contracts;
 
-interface ICommand
+interface IBaseCommand
 {
     /**
      * Set the location that a vessel will move to if passed this command.
@@ -10,4 +10,11 @@ interface ICommand
      * @param ICoOrdinate $coOrdinate
      */
     public function setCoOrdinate(ICoOrdinate $coOrdinate);
+
+    /**
+     * Returns the CoOrdinate.
+     *
+     * @return ICoOrdinate
+     */
+    public function getCoOrdinate();
 }

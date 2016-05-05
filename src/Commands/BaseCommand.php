@@ -3,10 +3,10 @@
 namespace Space\Commands;
 
 use Space\CoOrdinate;
-use Space\Contracts\ICommand;
+use Space\Contracts\IBaseCommand;
 use Space\Contracts\ICoOrdinate;
 
-class BaseCommand implements ICommand
+class BaseCommand implements IBaseCommand
 {
     /**
      * This is the location that a vessel will move to if passed this command.
@@ -23,5 +23,13 @@ class BaseCommand implements ICommand
     public function setCoOrdinate(ICoOrdinate $coOrdinate)
     {
         $this->coOrdinate = $coOrdinate;
+    }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCoOrdinate()
+    {
+        return $this->coOrdinate;
     }
 }

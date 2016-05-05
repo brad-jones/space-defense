@@ -21,4 +21,12 @@ class BaseVessel implements IBaseVessel
     {
         $this->command = $command;
     }
+
+    /**
+     * @inheritdoc
+     */
+    public function getCommand()
+    {
+        return $this->command;
+    }
 }
